@@ -13,7 +13,7 @@ from io import BytesIO
 import base64
 
 
-def eyecon():
+def eyecon(phonenumber):
     try:
         cap: Dict[str, Any] = {
             'platformName': 'Android',
@@ -25,7 +25,6 @@ def eyecon():
         }
 
         url = 'http://localhost:4724'  # enter appium server address
-        phonenumber = ''
 
         driver = webdriver.Remote(url, options=AppiumOptions().load_capabilities(cap))
         wait = WebDriverWait(driver, 10)
