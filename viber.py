@@ -11,7 +11,7 @@ from io import BytesIO
 import base64
 
 
-def viber():
+def viber(phonenumber):
     try:
         cap: Dict[str, Any] = {
             'platformName': 'Android',
@@ -20,9 +20,9 @@ def viber():
         }
 
         url = 'http://localhost:4724'  # enter appium server address
-
-        phonenumber = ''  # enter the number here
+        
         # Note: THERE SHOULD NOT BE ANY CONTACTS SAVED ON DEVICE THAT HAVE A VIBER ACCOUNT.
+        
         driver = webdriver.Remote(url, options=AppiumOptions().load_capabilities(cap))
         driver.activate_app('com.viber.voip')
         driver.terminate_app('com.viber.voip')
