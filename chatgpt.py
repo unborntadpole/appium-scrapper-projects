@@ -11,13 +11,12 @@ def chatgpt(emailadd):
         wait = WebDriverWait(driver, 10)
         driver.maximize_window()
         driver.get("https://platform.openai.com/login?launch")
-        driver.find_element(By.XPATH, '//*[contains(text(),"Sign up")]').click()
-        driver.find_element(By.NAME, 'email').send_keys(emailadd)
+        wait.until(EC.visibility_of_element_located((By.XPATH, '//*[contains(text(),"Sign up")]'))).click()
+        wait.until(EC.visibility_of_element_located((By.NAME, 'email'))).send_keys(emailadd)
         driver.find_element(By.XPATH, '//*[contains(text(),"Continue")]').click()
-        driver.find_element(By.NAME, 'password').send_keys('asdassdasdasd')
+        wait.until(EC.visibility_of_element_located((By.NAME, 'password'))).send_keys('asdassdasdasd')
         driver.find_element(By.XPATH, '//*[contains(text(),"Continue")]').click()
         try:
-            # search_incorrect_text = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[contains(text(),"\nThe user already exists.")]')))
             search_incorrect_text = wait.until(EC.visibility_of_element_located((By.ID, 'error-element-email')))
             temp = 1
         except:
@@ -29,4 +28,5 @@ def chatgpt(emailadd):
 
 
 # DRIVER CODE
-print(chatgpt('itssamriddhsingh@gmail.com')['registered'])
+# print(chatgpt('sam@gmail.com')['registered'])
+# print(chatgpt('sasdsasdggcvqwerdf@gmail.com')['registered'])
