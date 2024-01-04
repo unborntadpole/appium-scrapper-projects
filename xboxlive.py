@@ -16,7 +16,7 @@ def xboxlive(emailadd):
         wait.until(EC.visibility_of_element_located((By.NAME, 'MemberName'))).send_keys(emailadd)
         wait.until(EC.visibility_of_element_located((By.ID, 'iSignupAction'))).click()
         try:
-            search_incorrect_text = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[contains(text(),"Someone already has this email address. Try another name or ")]'))).click()
+            search_incorrect_text = wait.until(EC.visibility_of_element_located((By.ID, 'MemberNameError'))).click()
             temp = 1
         except:
             temp = 0
